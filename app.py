@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/multiplication")
+@app.get("/product")
 def addition(x:float, y:float):
     return x * y
 
