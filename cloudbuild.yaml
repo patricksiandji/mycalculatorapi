@@ -1,11 +1,11 @@
 steps:
   #terraorm init
-  - name: 'gcr.io/cloud-builders/terraform:1.0.0'
+  - name: 'hashicorp/terraform:1.0.0'
     entrypoint: 'terraform'
     args: ['init']
     
   #terraform apply
-  - name: 'gcr.io/cloud-builders/terraform:1.0.0'
+  - name: 'hashicorp/terraform:1.0.0'
     entrypoint: 'terraform'
     args: ['apply', '-auto-approve' ]
 
