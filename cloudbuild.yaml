@@ -1,8 +1,9 @@
 steps:
-
-   - name: 'hashicorp/terraform:1.0.0'
+  #terraform init
+  - name: 'hashicorp/terraform:1.0.0'
     args: ["terraform", "init"]
-
+    
+  #terraorm apply
   - name: 'hashicorp/terraform:1.0.0'
     args: ["terraform", "apply", "-auto-approve" ]
 
