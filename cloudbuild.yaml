@@ -2,18 +2,18 @@ steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest', 
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest', 
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest']
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest']
   
   - 
     name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
-    args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest', '--region', 'europe-west1', '--allow-unauthenticated', '--port', '80']
+    args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest', '--region', 'europe-west1', '--allow-unauthenticated', '--port', '80']
   
   #terraform init
 
