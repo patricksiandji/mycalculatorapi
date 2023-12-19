@@ -66,4 +66,8 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-credential.json
+terraform/secret.json
+terraform/*.lock.hcl
+terraform/*.tfstate
+
+../secret.json

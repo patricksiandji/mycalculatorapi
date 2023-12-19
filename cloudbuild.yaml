@@ -1,14 +1,4 @@
 steps:
-#   #terraorm init
-#   - name: 'hashicorp/terraform:1.0.0'
-#     entrypoint: 'terraform'
-#     args: ['init']
-    
-#   #terraform apply
-#   - name: 'hashicorp/terraform:1.0.0'
-#     entrypoint: 'terraform'
-#     args: ['apply', '-auto-approve' ]
-
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
@@ -20,8 +10,27 @@ steps:
     args: ['push', 
            'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest']
   
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - 
+    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest', '--region', 'europe-west1', '--allow-unauthenticated', '--port', '80']
-  #images:
-  #- gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA
+  
+  #terraform init
+
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform -chdir="./terraform" init
+  
+  #terraform plan
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform -chdir="./terraform" plan
+   
+
+  #terraform apply
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:1.0.0'
+    script: terraform -chdir="./terraform" apply -auto-approve
+  
+  
+ 
