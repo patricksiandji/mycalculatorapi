@@ -1,5 +1,5 @@
 resource "google_cloud_run_v2_service" "fas" {
-  name     = var.cr_app_name
+  name     = "fastapi-srv"
   location = var.default_region
   project  = var.project_id
   template {

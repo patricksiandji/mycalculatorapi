@@ -18,18 +18,18 @@ steps:
   #terraform init
 
   - id: 'terraform init'
-    name: 'hashicorp/terraform:1.0.0'
+    name: 'hashicorp/terraform:latest'
     script: terraform -chdir="./terraform" init
   
   #terraform plan
   - id: 'terraform plan'
-    name: 'hashicorp/terraform:1.0.0'
+    name: 'hashicorp/terraform:latest'
     script: terraform -chdir="./terraform" plan
    
 
   #terraform apply
   - id: 'terraform apply'
-    name: 'hashicorp/terraform:1.0.0'
+    name: 'hashicorp/terraform:latest'
     script: terraform -chdir="./terraform" apply -auto-approve
   
   
