@@ -16,11 +16,6 @@ variable "default_zone" {
 
 }
 
-variable "artifactory_format" {
-  type    = string
-
-}
-
 variable "cr_app_name" {
   type    = string
 }
