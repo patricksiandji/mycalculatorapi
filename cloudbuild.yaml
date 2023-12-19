@@ -1,12 +1,12 @@
 steps:
   #terraorm init
-  - name: 'hashicorp/google:5.9.0'
-    entrypoint: 'terraform'
+  - name: 'gcr.io/cloud-builders/terraform'
+    #entrypoint: 'terraform'
     args: ['init']
     
   #terraform apply
-  - name: 'hashicorp/terraform:1.0.0'
-    entrypoint: 'terraform'
+  - name: 'gcr.io/cloud-builders/terraform'
+    #entrypoint: 'terraform'
     args: ['apply', '-auto-approve' ]
 
   # Docker Build
