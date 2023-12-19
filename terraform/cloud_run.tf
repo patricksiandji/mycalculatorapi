@@ -4,7 +4,7 @@ resource "google_cloud_run_v2_service" "fastapi" {
   project  = "cw-patrick-sandbox"
   template {
     containers {
-      image = "europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest"
+      image = "europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest"
       ports {
         container_port = "80"
       }
