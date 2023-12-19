@@ -1,6 +1,6 @@
 steps:
   #terraorm init
-  - name: 'hashicorp/terraform:1.0.0'
+  - name: 'hashicorp/google:5.9.0'
     entrypoint: 'terraform'
     args: ['init']
     
