@@ -1,9 +1,4 @@
 
-variable "company_name" {
-  type    = string
-  default = "R-Astley-gmbh"
-
-}
 variable "project_id" {
   type    = string
   default = "cw-patrick-sandbox"
@@ -21,14 +16,8 @@ variable "default_zone" {
 
 }
 
-variable "artifactory_repo_id" {
-  type    = string
-  default = "repo-nginx-from-tf"
-}
-
 variable "artifactory_format" {
   type    = string
-  default = "DOCKER"
 
 }
 
@@ -44,18 +33,6 @@ variable "container_port" {
   type = number
 
 }
-
-variable "api_id" {
-  type    = string
-  default = "r-astley-api"
-
-}
-
-variable "api_spec_path" {
-  type    = string
-  default = "./api_spec.yaml"
-}
-
 variable "srv_account_id" {
   type    = string
 
