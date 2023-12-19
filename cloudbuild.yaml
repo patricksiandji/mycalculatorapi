@@ -1,8 +1,6 @@
 steps:
-
-  - id: 'tf apply'
-  name: 'hashicorp/terraform:1.0.0'
-  args: ["terraform", "apply", "-auto-approve" ]
+  - name: 'hashicorp/terraform:1.0.0'
+    args: ["terraform", "apply", "-auto-approve" ]
 
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
