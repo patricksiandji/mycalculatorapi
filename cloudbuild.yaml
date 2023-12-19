@@ -12,6 +12,6 @@ steps:
   
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
-    args: ['run', 'deploy', 'my-fastapi', '--image', 'gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA', '--region', 'europe-west1', '--allow-unauthenticated' ,'--port', '80']
+    args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA', '--region', 'europe-west1', '--allow-unauthenticated' '--port', '80']
   #images:
   #- gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA
