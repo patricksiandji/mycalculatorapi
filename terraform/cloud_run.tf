@@ -9,7 +9,7 @@ resource "google_cloud_run_v2_service" "fas" {
         container_port = "80"
       }
     }
-    service_account = google_service_account.cr_service_account.email
+  
   }
 
 }
