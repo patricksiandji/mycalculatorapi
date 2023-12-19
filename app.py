@@ -8,15 +8,15 @@ def addition(x:float, y:float):
     return x + y
 
 @app.get("/difference")
-def addition(x:float, y:float):
+def difference(x:float, y:float):
     return x - y
 
 @app.get("/multiplication")
-def addition(x:float, y:float):
+def multiplication(x:float, y:float):
     return x * y
 
 @app.get("/division")
-def addition(x:float, y:float):
+def division(x:float, y:float):
         try:
             result = x / y
             return result
