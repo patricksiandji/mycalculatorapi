@@ -10,8 +10,8 @@ steps:
     args: ['push', 
            'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA']
   
-  - name: 
-    entrypoint: 'gcloud'
-    args: ['run', 'deploy', 'my-fastapi', '--image', 'gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA']
+  #- name: 
+  #  entrypoint: 'gcloud'
+  #  args: ['run', 'deploy', 'my-fastapi', '--image', 'gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA']
   #images:
   #- gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA
