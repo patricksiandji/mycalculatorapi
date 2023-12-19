@@ -10,3 +10,8 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
            'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:v1']
+  
+  - name: 
+    entrypoint: 'gcloud'
+  #  timeout: 240s
+    args: ['run', 'deploy', 'my-fastapi', '--image=europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:v1']
