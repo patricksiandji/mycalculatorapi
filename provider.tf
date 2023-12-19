@@ -11,5 +11,5 @@ provider "google" {
   project = "cw-patrick-sandbox"
   region  = "europe-west1"
   zone    = "europe-west1-b"
-  credentials = file("./credential.json")
+  credentials = "credential.json"
 }
