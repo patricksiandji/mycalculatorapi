@@ -1,27 +1,27 @@
-steps:
-  #terraorm init
-  - name: 'hashicorp/terraform:1.0.0'
-    entrypoint: 'terraform'
-    args: ['init']
+# steps:
+#   #terraorm init
+#   - name: 'hashicorp/terraform:1.0.0'
+#     entrypoint: 'terraform'
+#     args: ['init']
     
-  #terraform apply
-  - name: 'hashicorp/terraform:1.0.0'
-    entrypoint: 'terraform'
-    args: ['apply', '-auto-approve' ]
+#   #terraform apply
+#   - name: 'hashicorp/terraform:1.0.0'
+#     entrypoint: 'terraform'
+#     args: ['apply', '-auto-approve' ]
 
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:$COMMIT_SHA', 
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest', 
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:$COMMIT_SHA']
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest']
   
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
-    args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:$COMMIT_SHA', '--region', 'europe-west1', '--allow-unauthenticated', '--port', '80']
+    args: ['run', 'deploy', 'my-fastapi', '--image', 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-from-tf/fastapi:latest', '--region', 'europe-west1', '--allow-unauthenticated', '--port', '80']
   #images:
   #- gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA
