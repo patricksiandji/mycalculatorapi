@@ -1,17 +1,17 @@
 steps:
-
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:v1', 
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA', 
            '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:v1']
+           'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA']
   
   - name: 
     entrypoint: 'gcloud'
-  #  timeout: 240s
-    args: ['run', 'deploy', 'my-fastapi', '--image=europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:v1']
+    args: ['run', 'deploy', 'my-fastapi', '--image', 'gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA']
+  #images:
+  #- gcr.io/cw-patrick-sandbox/europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:$COMMIT_SHA
