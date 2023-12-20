@@ -68,7 +68,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Google Auth
+      - name: Google Auth with Workload identity federation
         id: auth
         uses: 'google-github-actions/auth@v2'
         with:
