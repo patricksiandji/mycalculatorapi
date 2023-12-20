@@ -102,15 +102,12 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 363.0.0'
-    
-      - name: 'gcloud build'
-        run: 'gcloud info'
 
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
+      - name: 'push image to registry'
+        run: 'gcloud builds submit --region=europe-west1 --tag europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
 
-    #     - name: 'Use gcloud CLI'
-    #       un: 'gcloud info'
+      - name: 'deploy service to cloud run'
+        run: 'gcloud run deploy fastapi-sevice --image europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
 
     #     - name: 'Set up Cloud SDK'
     #   uses: 'google-github-actions/setup-gcloud@v2'
