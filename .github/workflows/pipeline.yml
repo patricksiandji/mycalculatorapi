@@ -103,6 +103,13 @@ jobs:
         with:
           version: '>= 363.0.0'
 
+      - name: 'gcloud login'
+        run: gcloud auth login
+      
+      - name: 'gcloud login'
+        run: gcloud auth list
+          
+
       - name: 'push image to registry'
         run: 'gcloud builds submit --region=europe-west1 --tag europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
 
