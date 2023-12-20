@@ -103,8 +103,8 @@ jobs:
         with:
           version: '>= 363.0.0'
 
-      # - name: 'gcloud login'
-      #   run: gcloud auth login
+      - name: 'gcloud login'
+        run: gcloud auth login --cred-file=${{ steps.auth.outputs.credentials_file_path }}
       
       - name: 'gcloud auth list'
         run: gcloud auth list
