@@ -103,11 +103,11 @@ jobs:
         with:
           version: '>= 363.0.0'
 
-      - name: 'gcloud login'
+      - name: 'gcloud auth login'
         run: gcloud auth login --cred-file=${{ steps.auth.outputs.credentials_file_path }}
       
-      - name: 'gcloud auth list'
-        run: gcloud auth list
+      - name: 'setup artifactory registry'
+        run: 'gcloud auth configure-docker europe-west1-docker.pkg.dev'
           
 
       - name: 'push image to registry'
