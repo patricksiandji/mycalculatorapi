@@ -103,10 +103,10 @@ jobs:
         with:
           version: '>= 363.0.0'
 
-      - name: 'gcloud login'
-        run: gcloud auth login
+      # - name: 'gcloud login'
+      #   run: gcloud auth login
       
-      - name: 'gcloud login'
+      - name: 'gcloud auth list'
         run: gcloud auth list
           
 
