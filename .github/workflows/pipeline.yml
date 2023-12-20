@@ -84,6 +84,9 @@ jobs:
       - name: 'gcloud auth login'
         run: gcloud auth login --cred-file=${{ steps.auth.outputs.credentials_file_path }}
 
+      - name: 'set up artifact registry'
+        run: 'gcloud auth configure-docker europe-west1-docker.pkg.dev '
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         
