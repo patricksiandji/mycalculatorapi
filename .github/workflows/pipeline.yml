@@ -110,7 +110,7 @@ jobs:
         uses: carbonchain/action-container-registry@v1.1
         with:
           project_id: ${{ env.PROJECT_ID }}
-          dockerfile: '.'
+          dockerfile: './Dockerfile'
           image: 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
           service_account_key: ${{ secrets.WIF_SERVICE_ACCOUNT }}
       
