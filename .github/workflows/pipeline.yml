@@ -105,13 +105,21 @@ jobs:
 
       - name: 'gcloud auth login'
         run: gcloud auth login --cred-file=${{ steps.auth.outputs.credentials_file_path }}
+
+      - name: Build and publish image to GCR
+        uses: carbonchain/action-container-registry@v1.1
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          dockerfile: '.'
+          image: 'europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
+          service_account_key: ${{ secrets.WIF_SERVICE_ACCOUNT }}
       
-      - name: 'setup artifactory registry'
-        run: 'gcloud auth configure-docker europe-west1-docker.pkg.dev'
+      # - name: 'setup artifactory registry'u
+      #   run: 'gcloud auth configure-docker europe-west1-docker.pkg.dev'
           
 
-      - name: 'push image to registry'
-        run: 'gcloud builds submit --region=europe-west1 --tag europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
+      # - name: 'push image to registry'
+      #   run: 'gcloud builds submit --region=europe-west1 --tag europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
 
       - name: 'deploy service to cloud run'
         run: 'gcloud run deploy fastapi-sevice --image europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest'
