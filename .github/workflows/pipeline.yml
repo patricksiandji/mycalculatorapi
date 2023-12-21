@@ -104,4 +104,4 @@ jobs:
           #  GIT_AUTH_TOKEN=${{ steps.auth.outputs. }}
 
       - name: 'deploy service to cloud run'
-        run: 'gcloud run deploy fastapi-sevice --image europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest --region europe-west1  ----allow-unauthenticated --port 80'
+        run: 'gcloud run deploy fastapi-sevice --image europe-west1-docker.pkg.dev/cw-patrick-sandbox/ci-cd-test/fastapi:latest --region europe-west1  --allow-unauthenticated --port 80'
